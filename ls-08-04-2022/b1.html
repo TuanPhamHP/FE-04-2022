@@ -1,0 +1,97 @@
+---
+Chữ: nội dung text
+Ảnh: nội dung ảnh
+---
+Chữ: gồm các loại thẻ để ghi nội dung text.
+thẻ heading (đầu mục): 
+h1->h6. cỡ chữ nhỏ dần
+
+<h1>
+Đây là thẻ h1
+</h1>
+
+<h2>
+Đây là thẻ h2
+</h2>
+
+<h6>
+Đây là thẻ h6
+</h6>
+
+----
+các thẻ text còn lại
+p: thẻ đôi dạng block
+span: thẻ đôi dạng inline
+pre:
+b:
+em: 
+......
+<p>Đây là text ở thẻ p</p>
+<p>Đây là text ở thẻ p</p>
+<span>Đây là text ở thẻ span1</span>
+<span>Đây là text ở thẻ span2</span>
+<p>Đây là text ở thẻ p3</p>
+
+<pre>
+Dòng 1
+Dòng 2
+Dòng 3
+</pre>
+<p>
+A B <b>C</b> D
+</p>
+----
+Dạng block: thẻ dạng block sẽ chiếm trọn 1 hàng và không chấp nhận dạng thẻ khác nằm chung hàng
+Dạng inlinethẻ dạng inline sẽ chiếm khoảng cách bằng content và chấp nhận mọi dạng thẻ khác nằm chung hàng
+
+---Ảnh
+<p>
+img: thẻ đơn
+</p>
+<img name="abc" src="https://static2.yan.vn/YanNews/2167221/202003/meme-la-gi-meme-bat-nguon-tu-dau-7cd70894-a3891f06.png" alt="đây là ảnh demo"
+width="100px"
+
+/> 
+<p>
+src: nhận đường dẫn ảnh (hoặc định dạng blob)
+</p>
+<p>
+alt: text hiển thị khi mà đường dẫn ảnh không thể truy cập để load ảnh
+</p>
+<p>
+load: thuộc tính để control dạng download của ảnh
+</p>
+<p>
+height, width: thuộc tính để control size, khi chỉ set 1 trong 2 chiều thì chiều còn lại tự động được co theo ratio cũ
+</p>
+
+---
+Yêu cầu về nhà: đọc, tìm hiểu các loại thẻ chứa text khác (VD: em, strong, ....) | DOC: https://www.w3schools.com/html/html_headings.asp
+
+<h1>CSS</h1>
+Đây là ngôn ngữ tạo kiểu (styling)
+<p>
+EG: Màu sắc, kích thước, vị trí, v.v
+</p>
+<p >
+Kiểu viết CSS đầu tiên: Internal CSS (Nội khối)
+<br />
+Cách viết: style="css-name: css-value;"
+<br />
+css-name: tên thuộc tính muốn tác động
+css-value: giá trị mà thuộc tính ở trên chấp nhận
+<br /><br /><br />
+css-overwrite: <br />
+rule 1:thuộc tính được khai báo sau sẽ đè lên thuộc tính được khai báo trước
+</p>
+<br /><br /><br />
+<p style="font-weight: lighter;font-weight: bold; display: block; color: rgb(50, 121, 168);">
+Đây là 1 dòng văn bản được in đậm bởi CSS
+</p>
+<br />
+font-*: sử dụng để tác động đến dạng hiển thị của phần font chữ (weight | size | family) | DOC: https://www.w3schools.com/css/css_font.asp, https://www.w3schools.com/css/css_text.asp
+<br />
+font-weight: sử dụng để thay đổi độ đậm nhạt của thẻ(chữ|số) -> tự tìm hiểu các giá trị của thuộc tính này.
+<br />
+color: tác động đến màu sắc của chữ, và màu default của border - các mã màu được chấp nhận: mã hex, rgb ....
+
