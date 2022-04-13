@@ -1,0 +1,120 @@
+<!-- HTML:
+-cấu trúc cơ bản
+-thẻ dạng ảnh
+-giới thiệu qua về dạng video và embed video
+CSS:
+control object của image
+background - image, color
+ctrl + / -->
+<!-- 
+  
+Tìm hiểu:
+DOCTYPE
+head 
+  -meta
+  -title
+  -favicon: chứa đường dẫn ảnh làm icon cho phần head của website: bao gồm các file ảnh thông thường và file dạng ico
+  -các thuộc tính còn lại của css-background | shorthand của background =>  https://www.w3schools.com/css/css_background.asp
+
+
+thẻ picture
+ -->
+<!-- Công dụng: tạo khối
+    <main>khối 1 bởi main</main>
+    <section>khối 2 bởi section</section>
+    <header>khối 3 bởi header</header>
+    <footer>khối 4 bởi footer</footer>
+      Lý do chia các thẻ block khác nhau:
+      gg bot đọc
+      code rõ ràng, mạch lạc hơn
+    -->
+
+<!-- 
+      CSS:
+      object-fit:
+        -fill: tự động stretch ảnh để vừa với kích thước được khai báo
+        -cover: tự động crop ảnh để vừa với kích thước được khai báo | mặc định crop center
+        -contain: tự động hiển thị ảnh với ratio không đổi, chấp nhận không fit với kích thước khung ảnh
+      border-radius: thực hiện bo tròn đối tượng | giá trị nhận vào là dimension (e.g: px, cm, rem, em, % v.v)
+      background-*
+        *= image - ảnh làm nền | giá trị nhận vào là 1 url
+        *= color - màu nền (lớp dưới cùng) | giá trị nhận vào là 1 mã màu (giống với css-color)
+    -->
+<html>
+
+<head>
+  <title>
+    Đây là thẻ title được viết trong thẻ head
+  </title>
+</head>
+
+<body name="body-wrapper">
+  <header></header>
+  <main>
+    <section>
+      <!-- HỌC VỀ THẺ DẠNG ẢNH
+       - đường dẫn local. ./ ../ hoặc /
+       - usemap: dùng để map với thẻ map
+       <map>
+         <area> : tạo ra 1 vùng để chọn
+          shape: định dạng hình dạng của area rect | circle
+          coords: với hình vuông. cần 2 điểm => 2 cặp tọa độ (x,y) VD: (1,2,5,6). gốc tọa độ là điểm bắt đầu từ bên tay trái góc trên
+          href: link quy định khi click vào area
+      -->
+      <div name="user-avatar">
+        <img src="./assets/images/cat-avatar.jpg" alt="user avtar" height="200px">
+        <br>
+        Fill 46x46: <br>
+        <img src="./assets/images/cat-avatar.jpg" alt="user avtar" width="46px" height="46px" style="
+        object-fit: fill;
+        border-radius: 100%;
+        ">
+        <br> Cover 46x46: <br>
+        <img src="./assets/images/cat-avatar.jpg" alt="user avtar" width="46px" height="46px" style="
+         object-fit: cover;
+         border-radius: 100%;
+         ">
+        <br> Contain 46x46: <br>
+        <img src="./assets/images/cat-avatar.jpg" alt="user avtar" width="46px" height="46px" style="
+           object-fit: contain;
+           border-radius: 100%;
+           ">
+      </div>
+      <small>
+        Định dạng được recommend là: 46 x 46px, không stretch ảnh, bo tròn
+      </small>
+      <div>
+        <img src="./assets/images/cat-avatar.jpg" alt="user avtar">
+      </div>
+      <div style="width: 500px; height:500px;
+      background-image: url('./assets/images/cat-avatar.jpg');
+      background-color: #21d036;
+      ">
+        <p>Đây là khối để test background</p>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+</body>
+
+</html>
+
+
+<!-- 
+Cover
+w x h: 10 x 6
+-> force về 5x5
+TH1 w->5 -> h->3 => s = 5x3 = 15
+TH2 h->5 -> w-> 8.(3) => s ~ 41.(6)
+=> cover sẽ lấy diện tích lớn nhấn -> chọn th2
+=> chọn trường hợp nào show được ảnh hiển thị tốt nhất
+ -->
+<!-- 
+Contain
+w x h: 10 x 6
+-> force về 5x5 -> s = 25
+TH1 w->5 -> h->3 => s = 5x3 = 15 => không cần crop ảnh
+TH2 h->5 -> w-> 8.(3) => s ~ 41.(6) => bắt buộc phải crop ảnh
+=> contain sẽ lấy diện tích lớn nhấn -> chọn th1
+=> chọn trường hợp nào show được toàn bộ ảnh ban đầu mà không bị cắt
+ -->
