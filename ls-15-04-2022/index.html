@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Phạm Anh Tuấn">
+  <title>Bài số 3 - Background + TABLE</title>
+</head>
+<!-- 
+  background-*
+  -color: set màu nền cho phần tử. Nhận giá trị: các mã màu E.g(#000000) | các tên màu đặc biệt đã được quy định E.g(black) .
+  -image: set hình nền cho phần tử. Nhận giá trị: đường dẫn đến tài nguyên ảnh có thể hiển thị. hoặc sử dụng để tạo ra gradient-background.
+  -size: set kích thước hình nền. Nhận giá trị: dim(height) x dim(width) | cover, contain...
+  -repeat: quy định kiểu lặp lại của ảnh. Nhận giá trị: repeat, no-repeat, repeat-x v.v.
+  -position-*: quy định vị trị đặt ảnh nền. Nhận giá trị: dim(x) x dim(y), position-text E.g(top, left, bottom, right, center)
+  --------
+  table: thẻ dạng block
+  thead: mang ý nghĩa phân chia khối.
+  tbody: mang ý nghĩa phân chia khối.
+  tr: là thẻ khai báo 1 row của table. | table-row
+  th: thẻ hiển thị data trong table dạng heading| table-heading
+  td: thẻ hiển thị data trong table dạng heading| table-data
+  *attributes:
+  td,th: colspan, rowspan
+-->
+<!-- 
+  Đọc thêm:
+  -image: các cách khai báo, sử dụng gradient-
+  -background shorthand
+
+  -rowspan, bảng dạng merge.
+-->
+
+<!-- 
+      background-image: url('./assets/images/cat-bg.jpg');
+      background-image: url('https://cdn.wallpapersafari.com/11/80/23AqeD.jpg')"
+
+
+
+      CSS DIMENSION BOX;
+      - INLINE CSS: css ngay tại thẻ đó | Sử dụng attribute style.
+      - INTERNAL CSS: css nội khối. class, id, selector .....
+      - EXTERNAL CSS: css ngoại khối.
+  -->
+
+<body>
+  SEO = search engine optimation
+  <main>
+    <!-- TEST BACKGROUND -->
+    <p style="color:red;">Ngày mai được ngủ đến tận 5h chiều mới phải dạy chạy deadline freelance</p>
+    <p style="color:red;">Ngày kia cũng thế</p>
+    <section>
+      <div style="height: 400px;
+      background-color: rgb(184, 183, 183);
+      background-image: url('./assets/images/cat-bg.jpg');
+      background-size: 100px;
+      background-repeat: no-repeat;
+      background-position: center;     
+      ">
+        Nội dung số 1
+      </div>
+      <!-- TABLE -->
+
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Tuổi
+            </th>
+            <th>
+              Tên
+            </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>40</td>
+            <td>A</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- MERGE TABLE -->
+      <table style="width: 500px;border: 1px solid rgb(0, 140, 255);
+        background-color: rgb(184, 183, 183); ">
+        <thead>
+          <tr>
+            <td colspan="2" style="border: 1px solid;">
+              Giá
+            </td>
+            <td style="border: 1px solid;">
+              Lợi nhuận
+            </td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Công ty A -->
+          <tr>
+            <td style="border: 1px solid;">40,000</td>
+            <td style="border: 1px solid;">50,000</td>
+            <td style="border: 1px solid;">-10,000</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid;">30,000</td>
+            <td style="border: 1px solid;">40,000</td>
+            <td style="border: 1px solid;">-10,000</td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <!-- Công ty B-->
+          <tr>
+            <td style="border: 1px solid;">40,000</td>
+            <td style="border: 1px solid;">50,000</td>
+            <td style="border: 1px solid;">-10,000</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid;">30,000</td>
+            <td style="border: 1px solid;">40,000</td>
+            <td style="border: 1px solid;">-10,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+
+</html>
+
+<!-- 
+  cover -> ưu tiên việc phủ kín khối mà không repeat lại ảnh - không cần sử dụng kèm -repeat (không có tác dụng)
+  cotain -> ưu tiên việc phủ kín khối mà không làm crop ảnh
+ -->
+
+<!-- 
+Contain
+w x h: 10 x 6
+-> force về 5x5 -> s = 25
+TH1 w->5 -> h->3 => s = 5x3 = 15 => không cần crop ảnh
+TH2 h->5 -> w-> 8.(3) => s ~ 41.(6) => bắt buộc phải crop ảnh
+=> contain sẽ lấy diện tích lớn nhấn -> chọn th1
+=> chọn trường hợp nào show được toàn bộ ảnh ban đầu mà không bị cắt, tự động chọn chiều nào mà khi phóng ảnh sẽ không bị trống.
+sẽ luôn scale ảnh để fit vừa ít nhất 1 chiều của phần tử 
+-->
