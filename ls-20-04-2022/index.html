@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Data</title>
+</head>
+<!-- const numberKeyCodeArr= [1,2,3,4.....,] -->
+<!-- 
+  form - action= get | post
+
+  data được ghi lại thông qua attr value
+  textarea: dùng nhập liệu
+    mặc định cho phép người dùng resize
+    có các attr để control size mặc định | cols, rows
+
+  input: thẻ nhập liệu
+    -type: Định nghĩa kiểu của thẻ input
+      1.input kiểu typing
+      text: kiểu kí tự
+      email: kiểu email
+      password: cũng nhận vào kí tự nhưng sẽ bị mã hóa, chặn đi 1 số hành động cơ bản của người dùng E.g: copy - từ chính ô password
+      number: kiểu số - đầu vào là số và 1 số toán tử.
+      file: Kiểu dữ liệu - đầu và là 1 hoặc nhiều files, controls dạng chọn qua attribute multiple
+      color, button....
+      2.input kiểu select
+      radio: kiểu chọn 1 - group các radio với nhau bằng attr name. kết nối 1 thẻ radio đến với label của nó thì sử dụng cặp id - for
+      checkbox: kiểu chọn nhiều - 
+  bộ select-option: kiểu chọn 1 - Mặc định chọn option đầu tiên. 
+
+1 số Attr quan trọng
+  value: giá trị gửi lên của thẻ
+  placeholder: ví dụ mẫu
+  checked, selected: set dạng input-select được chọn
+  readonly: data chỉ đọc, disable thao tác sửa xóa.
+  disable: vô hiệu hóa toàn bộ tính năng của thẻ.
+  ----- Form validation
+  maxlength, minlength, required
+
+-->
+<!-- 
+  Thẻ dạng list: ul, ol
+  media: video, audio
+ -->
+
+<body>
+  <main>
+    <section>
+      <form>
+        <p>Text area</p>
+        <textarea rows="3">
+        </textarea>
+        <p>Tên đăng nhập</p>
+        <input id="username" maxlength="10" minlength="9" type="text" value="" placeholder="example@gmail.com">
+        <p>Input password</p>
+        <input type="password" placeholder="Mọi kí tự đều được ghi lại">
+        <p>Input email</p>
+        <input type="email" required placeholder="Chỉ chấp nhận email">
+        <p>Input number</p>
+        <input type="number" placeholder="Chỉ chấp nhận số">
+        <p>Input file</p>
+        <input type="file" multiple>
+        <p>Input color</p>
+        <input type="color" multiple>
+        <p>Input button</p>
+        <input type="button" multiple>
+        <p>Input radio</p>
+        <input name="picker" id="selection-1" type="radio" checked> <label for="selection-1">Chọn tui</label>
+        <p></p>
+        <input name="picker" id="selection-2" type="radio"> <label for="selection-2">Chọn tui nè</label>
+        <p></p>
+        <input name="picker" id="selection-3" type="radio"> <label for="selection-3">Hoặc là tui</label>
+        <br>
+        <p>Input checkbox</p>
+        <input name="picker" id="selections-3" type="checkbox"> <label for="selections-3">Hoặc là tui</label>
+        <input name="picker" id="selections-4" type="checkbox" checked> <label for="selections-4">Tui</label>
+        <p>Bộ thẻ select</p>
+        <p>Chọn phương tiện</p>
+        <select>
+          <option>Xe ô tô</option>
+          <option>Xe đạp</option>
+          <option>Xe máy</option>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+</body>
+
+</html>
