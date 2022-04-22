@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS - Box</title>
+
+  <style>
+    body {
+      padding: 100px 0;
+    }
+
+    .d-flex {
+      display: flex;
+      flex-direction: row-reverse;
+      /* row, column */
+      flex-wrap: wrap-reverse;
+      /* nowrap, wrap */
+    }
+
+    .bg-red {
+      background-color: red;
+    }
+
+    .bg-blue {
+      background-color: blue;
+    }
+
+    .bg-black {
+      background-color: black;
+    }
+
+    .col-4 {
+      width: 33.33%;
+    }
+  </style>
+</head>
+<!-- 
+  CSS - Box sẽ hiển thị 2 thông số chính
+   1. Các Dim: WxH, 4 cạnh top, left, bottom, right. Chạy chiều kim đồng hồ top -> left
+   2. Các khối cấu tạo lên thẻ.
+
+  width-height: khai báo kích thước cho box. Mặc định là phần content của box.
+  box-sizing: khai báo kiểu kích thước box. mặc định là content-box | border-box
+  padding: khoảng cách giữa border và content;
+    - padding-* : * là vị trí padding (top, left, bottom, right);
+    - padding: s1, s2, s3 ,s4  -> Chạy chiều kim đồng hồ top -> left
+               s1, s2, s3 -> s1 = top, s2 = left & right, s3 = btm
+               s1, s2 -> s1 = top & btm, s2 = left & right
+               s1 -> s1 = top & btm & left & right
+  margin: khoảng cách giữa border và border của 2 khối;
+    - margin-* : * là vị trí margin (top, left, bottom, right);
+    - margin: s1, s2, s3 ,s4  -> Chạy chiều kim đồng hồ top -> left
+               s1, s2, s3 -> s1 = top, s2 = left & right, s3 = btm
+               s1, s2 -> s1 = top & btm, s2 = left & right
+               s1 -> s1 = top & btm & left & right
+      * margin có nhận giá trị auto
+
+  Display - Dạng hiển thị
+    Block -> tác động được đến CSS - Box. Mặc định chiếm 1 dòng.
+    Inline -> không tác động được đến CSS - Box. Cho phép thẻ khác nằm cùng dòng.
+    Inline-Block -> tác động được đến CSS - Box, Cho phép thẻ khác nằm cùng dòng.
+    None: ẩn hoàn toàn thẻ đi.
+    Flex: -> Tự động áp dụng dạng display mới cho các thẻ con trực tiếp(trừ dạng none, table ..)
+    ưu tiên sử dụng để phân chia trang thành các khối.
+    Grid: -> chia toàn bộ phần layout nằm trong thẻ thành dạng lưới.
+
+    table, table-row, webkit-box.....
+    - display: inline, block, inline-block
+
+
+  Mặc định hệ trục của 1 browser:
+  Trục X: nằm ngang, từ trái sang phải.
+  Trục Y: nằm dọc, từ trên xuống dưới.
+  Trục trong flex
+    Chỉ có 2 trục: trục chính, trục phụ
+    trục chính: dùng để sắp xếp, phát triền phần tử 
+    -> phần tử được sắp xếp lần lượt theo trục chính: theo hướng của trục chính.
+    trục phụ: dùng để sắp xếp, phát triền phần tử khi phần bị bị overwrap
+    -> phần tử được sắp xếp lần lượt theo trục phụ: theo hướng của trục phụ.
+
+  mặc định của flex
+  trục chính cùng phương cùng chiều với trục X
+  để control trục chính -> sử dụng flex-direction
+  row: mặc định - trục chính cùng phương cùng chiều với trục X;
+  column: dạng cột - trục chính cùng phương cùng chiều với trục Y;
+  *-reverse: đảo phương hướng của trục chính
+
+  mặc định của flex
+  trục phụ cùng phương cùng chiều với trục Y
+  để control trục phụ -> sử dụng flex-wrap
+  nowrap: mặc định - Tự động co các phần tử còn lại theo tỉ lệ được khai báo để chứa vừa phần tử mới;
+  wrap: xuống dòng - Tự động đẩy phần tử mới xuống dòng trục phụ cùng phương cùng chiều với trục Y;
+  wrap-reverse: đảo phương hướng của trục phụ  
+
+ -->
+
+<!-- 
+  Làm sao để sử dụng được margin auto theo trục Y (top, bottom).
+  Tìm hiểu về các thuộc tính của border, dạng line của border, màu của border
+  Flex-items
+-->
+
+<body>
+  <main>
+    <section>
+      <h1>
+        CSS Box
+      </h1>
+      <div style="
+      width: 150px; 
+      height: 150px; 
+      background-color: rgb(17, 0, 255); 
+      color: #fff; 
+      /* padding: 10px ; */
+      border: 3px solid rgb(189, 12, 33);
+      margin: 10px;
+      /* box-sizing: border-box; */
+      ">
+        <!-- <div style="width: 150px; height: 150px; background-color: rgb(115, 171, 18); color: #fff;">
+    
+        </div> -->
+        Khối A
+      </div>
+      <div style="
+      width: 150px; 
+      height: 150px; 
+      background-color: rgb(17, 0, 255); 
+      color: #fff; 
+      /* padding: 20px; */
+      border: 3px solid rgb(189, 12, 33);
+      /* margin: 20px; */
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: auto;
+      /* box-sizing: border-box; */
+      ">
+        <!-- <div style="width: 150px; height: 150px; background-color: rgb(115, 171, 18); color: #fff;">
+    
+        </div> -->
+        Khối B
+      </div>
+      <h1>
+        Display
+      </h1>
+      <p>Thẻ p</p>
+      <span style="
+      background-color: burlywood;
+      width: 150px; 
+      height: 150px; 
+      padding: 20px; 
+      margin: 20px;
+      display: inline-block;
+      ">Thẻ span</span>
+      <span style="
+       display: inline;
+      ">1</span>
+    </section>
+
+    <section>
+      <div class="d-flex">
+        <div class="col-4 bg-red">
+          hello đây là f1
+        </div>
+        <div class="col-4 bg-blue">
+          hello đây là f2
+        </div>
+        <div class="col-4 bg-black">
+          hello đây là f3
+        </div>
+
+        <div class="col-4 bg-red">
+          hello đây là f4
+        </div>
+      </div>
+
+    </section>
+  </main>
+</body>
+
+</html>
