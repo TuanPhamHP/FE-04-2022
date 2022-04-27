@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    CSS - Pseudo, animation
+  </title>
+  <!-- 
+    Pseudo: 1 thành phần được tạo ra bởi 1 điều kiện nhất định. Khi điều kiện không còn được thỏa mãn thì sẽ bị remove đi.
+    
+    Có 2 loại pseudo
+    1.Pseudo-class
+    Syntax: 
+      selector:pseudo-class-name
+      -selector: là thành phần tạo ra điều kiện để có pseudo-class
+      -pseudo-class-name: là tên của điều kiện.
+    Một số pseudo-class phổ biến
+     :hover : contrỏ chuột đi vào trong phần tử và chưa đi ra ngoài
+     :focus : phần tử được focus vào trong nội dung
+     :visited : thẻ a mà có đường link đã được cache lại
+
+
+    2.Pseudo-element
+    Syntax:
+      selector::pseudo-element-name
+      -selector: là thành phần tạo ra điều kiện để có pseudo-class
+      -pseudo-class-name: là tên của element
+    Một số pseudo-element phổ biến
+      ::before : chỉ có thể xuất hiện với property content: ''
+      ::after : chỉ có thể xuất hiện với property content: ''
+      ::placeholder 
+
+
+    Animation: 1 hoặc 1 chuỗi các hành động - 1 hoặc 1 chuỗi các thay đổi của property
+
+    loại animation chỉ có 1 thay đổi. không phân chia 1 cách phức tạp về sự thay đổi
+    với loại này chỉ cần control được tốc độ của thay đổi.
+    => sử dụng transition
+    transition-* : quy định 1 số thuộc tính được áp dụng khi có sự thay đổi
+      duration: quy định khoảng thời gian hoàn thành hành động. | đơn vị dạng thời gian (ms, s)
+      delay: quy định khoảng thời gian trễ trước khi bắt đầu và kết thúc hành động. | đơn vị dạng thời gian (ms, s)
+      timing-function: quy định cách thức thực hiện hành động.
+      property: quy định thuộc tính thay đổi được áp dụng transition.
+      position: quy định điểm làm mốc thực hiện thay đổi.
+   -->
+
+  <!-- 
+    sibling selector
+    .nth-sufix(count)
+      .nth-
+      count
+
+      -sufix
+    -->
+  <style>
+    .pointer {
+      cursor: pointer !important;
+    }
+
+    section .text-white {
+      color: #fff;
+    }
+
+    .bg-smoke {
+      background-color: antiquewhite;
+    }
+
+    .block-1:hover {
+      color: #ff0000;
+    }
+
+    .block-1:focus,
+    .block-1:focus-visible,
+    .block-1:focus-within {
+      color: #ff0000;
+    }
+
+    input {
+      border: 1px solid blue;
+    }
+
+    input:focus {
+      border: 1px solid red !important;
+    }
+
+    a {
+      text-decoration: none;
+      color: crimson;
+    }
+
+    a:visited {
+      color: crimson;
+    }
+
+    a:focus {
+      color: crimson;
+    }
+
+    a:active {
+      color: crimson;
+    }
+
+    .p-wr {
+      padding: 16px;
+      height: 200px;
+      background-color: aquamarine;
+    }
+
+    .p-wr:hover {
+      background-color: purple;
+      height: 300px;
+      /* padding-bottom: 80px; */
+    }
+
+    .p-wr:hover p {
+      background-color: #00d0ff;
+    }
+
+    .p-wr::before {
+      content: '';
+      display: none;
+      height: 2px;
+      background-color: aquamarine;
+
+    }
+
+    .p-wr::after {
+      content: '';
+      display: none;
+      height: 2px;
+      background-color: aquamarine;
+      /* 
+      animation
+      postion
+      */
+    }
+
+    .p-wr:hover::before {
+      display: block;
+    }
+
+    .p-wr:hover::after {
+      display: block;
+    }
+
+    input::placeholder {
+      color: rgba(255, 0, 0, 0.505);
+    }
+
+    .p-wr:nth-of-type(n) p {
+      color: rgb(50, 42, 32);
+    }
+
+    .p-wr {
+      transition-duration: 2s;
+      /* transition-delay: 1s; */
+      transition-timing-function: cubic-bezier(.59, 1.79, .69, .66);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section>
+      <div class="text-white bg-smoke block-1" tabindex="-1">
+        Block 1
+      </div>
+      <input type="text" placeholder="Ấn vào tui">
+      <!-- <input type="text" placeholder="Ấn vào tui">
+      <input type="text" placeholder="Ấn vào tui"> -->
+      <a
+        href="https://www.goozxcgle.com/search?q=vuex&sxsrf=APq-WBuAPlfrS5j2uxbf206RUhIdjibfQg%3A1651065486150&source=hp&ei=jkJpYqO0B4mY0ASOkbzwDQ&iflsig=AHkkrS4AAAAAYmlQnndB4Lw57wdZDCIIZqU5I9QRWtiu&ved=0ahUKEwijs7SeqrT3AhUJDJQKHY4ID94Q4dUDCAc&uact=5&oq=vuex&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBggjECcQEzIGCCMQJxATMgsIABCABBCxAxCDATIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoOCC4QgAQQsQMQgwEQ1AI6EQguEIAEELEDEIMBEMcBEKMCOhEILhCABBCxAxCDARDHARDRAzoFCC4QgAQ6DgguEIAEELEDEMcBEKMCOgsILhCABBCxAxDUAlAAWNQDYIEJaABwAHgAgAFbiAG4ApIBATSYAQCgAQE&sclient=gws-wiz">
+        Link gg
+      </a>
+      <a
+        href="https://www.google.com/search?q=vuex&sxsrf=APq-WBuAPlfrS5j2uxbf206RUhIdjibfQg%3A1651065486150&source=hp&ei=jkJpYqO0B4mY0ASOkbzwDQ&iflsig=AHkkrS4AAAAAYmlQnndB4Lw57wdZDCIIZqU5I9QRWtiu&ved=0ahUKEwijs7SeqrT3AhUJDJQKHY4ID94Q4dUDCAc&uact=5&oq=vuex&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBggjECcQEzIGCCMQJxATMgsIABCABBCxAxCDATIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoOCC4QgAQQsQMQgwEQ1AI6EQguEIAEELEDEIMBEMcBEKMCOhEILhCABBCxAxCDARDHARDRAzoFCC4QgAQ6DgguEIAEELEDEMcBEKMCOgsILhCABBCxAxDUAlAAWNQDYIEJaABwAHgAgAFbiAG4ApIBATSYAQCgAQE&sclient=gws-wiz">
+        Link gg
+      </a>
+      <div class="p-wr">
+        <p class="pointer"> Đây là chữ của thẻ p 1 pointer</p>
+        <p> Đây là chữ của thẻ p 2</p>
+        <p> Đây là chữ của thẻ p 3</p>
+        <p> Đây là chữ của thẻ p 4</p>
+      </div>
+      <!-- <div class="p-wr">
+        <p> Đây là chữ của thẻ p 1</p>
+        <p> Đây là chữ của thẻ p 2</p>
+        <p> Đây là chữ của thẻ p 3</p>
+        <p> Đây là chữ của thẻ p 4</p>
+      </div>
+      <div class="p-wr">
+        <p> Đây là chữ của thẻ p 1</p>
+        <p> Đây là chữ của thẻ p 2</p>
+        <p> Đây là chữ của thẻ p 3</p>
+        <p> Đây là chữ của thẻ p 4</p>
+      </div>
+      <div class="p-wr">
+        <p> Đây là chữ của thẻ p 1</p>
+        <p> Đây là chữ của thẻ p 2</p>
+        <p> Đây là chữ của thẻ p 3</p>
+        <p> Đây là chữ của thẻ p 4</p>
+      </div> -->
+    </section>
+  </main>
+</body>
+
+</html>
