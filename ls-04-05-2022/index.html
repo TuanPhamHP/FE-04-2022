@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    CSS - Animation, Transform
+    <!-- 
+      animation-*
+       duration: giống với transition
+       delay: giống với transition
+       timing-function: giống với transition | ease.. cubic
+
+
+       name: định nghĩa tên của animation sẽ được áp dụng
+       direction:  định nghĩa điểm bắt đầu của animation.
+       fill-mode: định nghĩa trạng thái của phần tử sau khi thực hiện hết hành động
+       iteration-count: định nghĩa số lần thực hiện hành động
+       -shorthand
+       transform 
+       origin: sử dụng để quy định điểm mốc để bắt đầu transform
+        translate*: sử dụng để di chuyển phần tử ra khỏi vị trí ban đầu
+          X: di chuyển theo trục X (trái -> phải)
+          Y: di chuyển theo trục Y (trên -> dưới) 
+          : X() Y() || (x, y)
+          => khi có translate thì element sẽ tự tạo 1 mặt phẳng riêng. nhưng vẫn chiếm vị trí ban đầu tại mặt phằng mặc định
+        scale*: thay đổi kích thước của phần tử theo tỉ lệ;
+          X: thay đổi kích thước của phần tử theo trục X (trái -> phải)
+          Y: thay đổi kích thước của phần tử theo trục Y (trên -> dưới) 
+           : X() Y() || (xy) || (x, y)
+        rotate*: xoay phần tử theo góc;
+          X: xoay phần tử theo trục X 
+          Y: xoay phần tử theo trục Y 
+          Z: xoay phần tử theo trục Z 
+        skew
+
+
+        overflow-*: sử dụng để thao tác với phần thừa của nội dung 1 thẻ
+        *: x||y
+          auto: trục vượt ra sẽ tự động tạo lên 1 thanh kéo
+          visible: cho phép hiển thị vượt ra ngoài khối bao
+          hidden: ẩn toàn bộ content vượt ra khỏi kích thước của khối bao
+          scroll: trục vượt ra sẽ tự động tạo lên 1 thanh kéo, tự tạo thanh kéo từ ban đầu
+        -->
+  </title>
+
+  <style>
+    .div-ex1 {
+      width: 200px;
+      height: 200px;
+      background-color: purple;
+      color: #fff;
+      overflow-y: hidden
+        /* transform: translateX(-50px); */
+        /* transform: scale(1.5, 4); */
+        /* transform: skewY(100deg); */
+        /* transition-duration: 1s; */
+    }
+
+    .div-ex1 img {
+      transition: 0.5s ease-in-out;
+      transform-origin: center bottom;
+      transform: scaleY(0) scaleX(0);
+    }
+
+    .div-ex1:hover img {
+      transform: scale(1);
+
+    }
+
+    .div-ex2 {
+      width: 200px;
+      height: 200px;
+      background-color: rgb(128, 36, 0);
+      margin-bottom: 16px;
+      /* transition-duration: 1s; */
+    }
+
+    /* .div-ex3 {
+      transform: translateY(50%);
+    } */
+
+    /* .div-ex1:hover {
+
+      width: 300px;
+      height: 300px;
+    } */
+
+    /* .div-ex1:hover {
+      animation-name: animation1;
+      animation-duration: 2s;
+      animation-delay: 0.1s;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+    } */
+
+    @keyframes animation1 {
+      0% {
+        width: 200px;
+        height: 200px;
+      }
+
+      50% {
+        width: 300px;
+        height: 200px;
+      }
+
+      100% {
+        width: 300px;
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section>
+
+      <div class="div-ex2" style="">
+
+      </div>
+      <div class="div-ex1" style="">
+
+        <img src="https://www.w3schools.com/w3css/img_forest.jpg" width="100%" alt="">
+        <!-- <div style="background-color:red; width: 50%; height: 50%;" class="div-ex3"></div> -->
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
