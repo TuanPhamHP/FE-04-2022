@@ -1,0 +1,79 @@
+/* EXTERNAL CSS */
+
+/* RESET */
+body {
+	margin: 0;
+}
+* {
+	font-family: 'Inter';
+}
+/* HELPERS */
+.image-fit__cover {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+}
+.container-fluid {
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+}
+.container {
+	width: 100%;
+	max-width: 1240px;
+	margin: 0 auto;
+}
+.d-flex {
+	display: flex;
+}
+.ml-auto {
+	/* ml: margin-left */
+	margin-left: auto;
+}
+.my-0 {
+	/* my: margin y axis */
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.mx-1 {
+	/* mx: margin x axis */
+	margin-left: 4px;
+	margin-right: 4px;
+}
+.px-1 {
+	/* px: padding x axis */
+	padding-left: 4px;
+	padding-right: 4px;
+}
+.position-fixed {
+	position: fixed;
+}
+.position-sticky {
+	position: sticky;
+}
+.bg-white {
+	background-color: rgba(255, 255, 255, 0.711);
+}
+/* CUSTOM */
+main {
+	min-height: 200vh;
+}
+.page-header-list {
+	padding: 0;
+	list-style-type: none;
+}
+.page-header-list a {
+	display: block;
+	height: 58px;
+	line-height: 58px;
+	text-decoration: none;
+	color: #616161;
+	/* display: flex;
+	height: 58px;
+	align-items: center;
+	justify-content: center; */
+}
+.page-header {
+	backdrop-filter: blur(10px);
+	top: 0;
+}
