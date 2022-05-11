@@ -7,11 +7,15 @@ body {
 * {
 	font-family: 'Inter';
 }
+
 /* HELPERS */
 .image-fit__cover {
 	max-width: 100%;
 	max-height: 100%;
 	object-fit: cover;
+}
+.no-decoration {
+	text-decoration: none !important;
 }
 .container-fluid {
 	width: 100%;
@@ -24,7 +28,86 @@ body {
 	margin: 0 auto;
 }
 .d-flex {
+	display: flex !important;
+}
+.align-items-center {
+	align-items: center;
+}
+.row {
 	display: flex;
+	flex-wrap: wrap;
+}
+.col-1 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: calc(100% * 1 / 12);
+	max-width: calc(100% * 1 / 12);
+}
+.col-2 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: calc(100% * 2 / 12);
+	max-width: calc(100% * 2 / 12);
+}
+.col-3 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: calc(100% * 3 / 12);
+	max-width: calc(100% * 3 / 12);
+}
+.col-4 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: calc(100% * 4 / 12);
+	max-width: calc(100% * 4 / 12);
+}
+.col-5 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: calc(100% * 5 / 12);
+	max-width: calc(100% * 5 / 12);
+}
+.col-6 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: calc(100% * 6 / 12);
+	max-width: calc(100% * 6 / 12);
+}
+.col-7 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: calc(100% * 7 / 12);
+	max-width: calc(100% * 7 / 12);
+}
+.col-8 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: calc(100% * 8 / 12);
+	max-width: calc(100% * 8 / 12);
+}
+.col-9 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: calc(100% * 9 / 12);
+	max-width: calc(100% * 9 / 12);
+}
+.col-10 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: calc(100% * 10 / 12);
+	max-width: calc(100% * 10 / 12);
+}
+.col-11 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: calc(100% * 11 / 12);
+	max-width: calc(100% * 11 / 12);
+}
+.col-12 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: calc(100% * 12 / 12);
+	max-width: calc(100% * 12 / 12);
 }
 .ml-auto {
 	/* ml: margin-left */
@@ -34,6 +117,9 @@ body {
 	/* my: margin y axis */
 	margin-top: 0;
 	margin-bottom: 0;
+}
+.my-1 {
+	margin-bottom: 4px;
 }
 .mx-1 {
 	/* mx: margin x axis */
@@ -52,9 +138,33 @@ body {
 	position: sticky;
 }
 .bg-white {
-	background-color: rgba(255, 255, 255, 0.711);
+	background-color: rgb(255, 255, 255);
+}
+.has-dropdown {
+	position: relative;
+}
+.has-dropdown .dropdown {
+	position: absolute;
+	z-index: 2;
+	opacity: 0;
+}
+.has-dropdown:hover .dropdown {
+	animation: fadeInUp 0.5s forwards;
+}
+.has-dropdown:hover .chervon-down {
+	transform: rotateZ(360deg);
 }
 /* CUSTOM */
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(30px);
+	}
+}
 main {
 	min-height: 200vh;
 }
@@ -62,12 +172,14 @@ main {
 	padding: 0;
 	list-style-type: none;
 }
-.page-header-list a {
+.page-header-list .each-nav {
 	display: block;
 	height: 58px;
 	line-height: 58px;
 	text-decoration: none;
 	color: #616161;
+	font-size: 15px;
+	font-weight: 500;
 	/* display: flex;
 	height: 58px;
 	align-items: center;
@@ -76,4 +188,67 @@ main {
 .page-header {
 	backdrop-filter: blur(10px);
 	top: 0;
+}
+.dropdown {
+	width: 900px;
+	padding: 15px;
+}
+.dropdown .content .content-title {
+	font-weight: 700;
+	color: #424242;
+	font-size: 15px;
+	line-height: 22.5px;
+}
+.dropdown .content .content-desc {
+	font-weight: 400;
+	color: #757575;
+	font-size: 12px;
+}
+.dropdown .each-items {
+	border-radius: 4px;
+	gap: 20px;
+	padding: 8px 15px;
+	/* gap = khoảng cách giữa 2 phần tử / tính theo trục chính */
+}
+.dropdown .each-items:hover {
+	background-color: rgba(165, 0, 100, 0.05);
+}
+.dropdown .each-items:hover .content-title {
+	color: #a50064;
+}
+.nav-dropdown {
+	top: 100%;
+	transform: translateY(40px);
+	border-radius: 4px;
+	border: 1px solid #e0e0e0;
+}
+.nav-dropdown::before {
+	content: '';
+	border-bottom: 14px solid rgb(255, 255, 255);
+	border-top: 14px solid rgba(247, 5, 5, 0);
+	border-right: 14px solid rgba(247, 5, 5, 0);
+	border-left: 14px solid rgba(247, 5, 5, 0);
+	width: 0;
+	height: 0;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 10px;
+	transform: translateY(-100%);
+	z-index: 2;
+}
+.nav-dropdown::after {
+	z-index: 1;
+	content: '';
+	border-bottom: 15px solid #e0e0e0;
+	border-top: 15px solid rgba(247, 5, 5, 0);
+	border-right: 15px solid rgba(247, 5, 5, 0);
+	border-left: 15px solid rgba(247, 5, 5, 0);
+	width: 0;
+	height: 0;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 10px;
+	transform: translateY(-100%) translateX(-1px);
 }
