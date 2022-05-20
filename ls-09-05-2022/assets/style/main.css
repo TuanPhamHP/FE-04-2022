@@ -1,6 +1,14 @@
+/* IMPORT CSSS */
+@import url('./spacing.css');
+
 /* EXTERNAL CSS */
 
 /* RESET */
+
+/* 
+	css được viết trong file sẽ ow cdn;
+	css được viết trong file không ow cdn;
+*/
 body {
 	margin: 0;
 }
@@ -121,28 +129,13 @@ body {
 	width: calc(100% * 12 / 12);
 	max-width: calc(100% * 12 / 12);
 }
-.ml-auto {
-	/* ml: margin-left */
-	margin-left: auto;
+.d-laptop-block {
+	display: block !important;
 }
-.my-0 {
-	/* my: margin y axis */
-	margin-top: 0;
-	margin-bottom: 0;
+.d-laptop-none {
+	display: none !important;
 }
-.my-1 {
-	margin-bottom: 4px;
-}
-.mx-1 {
-	/* mx: margin x axis */
-	margin-left: 4px;
-	margin-right: 4px;
-}
-.px-1 {
-	/* px: padding x axis */
-	padding-left: 4px;
-	padding-right: 4px;
-}
+
 .position-fixed {
 	position: fixed;
 }
@@ -304,3 +297,78 @@ main {
 .search-input .lookup-icon {
 	filter: opacity(0.4);
 }
+body {
+	background-color: teal;
+}
+/* REPOSIVE */
+/* if (width <= '300px' || height >= '600px'){
+	alert('mobile')
+} */
+/* 
+	max-width: kích thước hiện tại <= điều kiện
+	min-width: kích thước hiện tại >= điều kiện
+
+*/
+
+@media only screen and (max-width: 1920px) {
+	body {
+		background-color: #60a500;
+	}
+	.d-laptop-block {
+		display: block !important;
+	}
+	.d-laptop-none {
+		display: none !important;
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	body {
+		background-color: #a50064;
+	}
+}
+@media only screen and (max-width: 460px) {
+	body {
+		background-color: #5d00a5;
+	}
+	.d-mobile-block {
+		display: block !important;
+	}
+	.d-mobile-none {
+		display: none !important;
+	}
+}
+
+@media only screen and (min-width: 460px) {
+	body {
+		background-color: #5d00a5;
+	}
+}
+@media only screen and (min-width: 992px) {
+	body {
+		background-color: #a50064;
+	}
+}
+@media only screen and (min-width: 1920px) {
+	body {
+		background-color: #60a500;
+	}
+}
+
+/* 
+	MOBILE: <= 460px;
+	TABLET: 460px < x <= 992px
+	LATOP:  992px < x <= 1920px;
+	COMPUTER: x > 1920px
+
+
+	break-points
+	xl : extra-large >= 1240px
+	lg : large  990px -> 1239px 
+	md : medium 560 -> 989px
+	sm : small  < 560px
+	xs : extra-small
+
+	DESKTOP First
+	MOBILE First
+*/

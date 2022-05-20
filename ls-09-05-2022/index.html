@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
     DEMO
-
   </title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -243,7 +242,15 @@
             </div>
           </div>
         </li>
-        <li class="items ml-auto d-flex align-items-center">
+        <li class="items">
+          <a href="#" class="px-1 each-nav d-laptop-block d-mobile-none">Đây là laptop rồi
+          </a>
+        </li>
+        <li class="items">
+          <a href="#" class="px-1 each-nav d-laptop-none d-mobile-block">Đây là mobile rồi
+          </a>
+        </li>
+        <li class="items ml-auto d-flex align-items-center d-mobile-none">
           <div class="search-input">
             <input type="text" placeholder="Bạn tìm gì ...">
             <i class="fa-solid fa-magnifying-glass lookup-icon"></i>
@@ -253,11 +260,18 @@
     </div>
   </header>
   <main>
-    <section class="container-fluid banner-section">
+    <section class="container-fluid banner-section my-0 ">
       <img src="./assets/images/banner.jpg" alt="banner" class="banner-background image-fit__cover">
       <div class="container">
         <!-- CONTENT GOES HERE -->
-
+        <div class="abc">
+          <!-- Phải là flex -->
+          <!-- Phải là relative - để làm mốc cho các phần tử con -->
+        </div>
+        <div class="def">
+          <!-- Phải là flex -->
+          <!-- Phải là absolute - để làm mốc cho các phần tử con -->
+        </div>
       </div>
     </section>
   </main>
