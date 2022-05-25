@@ -9,6 +9,11 @@
 	css được viết trong file sẽ ow cdn;
 	css được viết trong file không ow cdn;
 */
+
+:root {
+	--primary-color: #f50707;
+	/* khai báo biến có tên là "--primary-color" ứng với giá trị fallback là "#fefefe" */
+}
 body {
 	margin: 0;
 }
@@ -160,6 +165,9 @@ body {
 	font-size: 12px;
 }
 .has-dropdown:hover .dropdown {
+	--primary-color: #ed07f5;
+	/* local variable */
+	background-color: var(--primary-color, #5d00a5);
 	animation: navDropDownShow 0.5s forwards;
 	visibility: visible;
 }
@@ -174,7 +182,7 @@ body {
 	}
 	100% {
 		opacity: 1;
-		transform: translateY(0px);
+		transform: translateY(30px);
 	}
 }
 @keyframes navDropDownShow {
@@ -184,7 +192,7 @@ body {
 	}
 	100% {
 		opacity: 1;
-		padding: 25px 0 15px;
+		padding: 55px 0 15px;
 	}
 }
 main {
@@ -309,7 +317,6 @@ body {
 	min-width: kích thước hiện tại >= điều kiện
 
 */
-
 @media only screen and (max-width: 1920px) {
 	body {
 		background-color: #60a500;
