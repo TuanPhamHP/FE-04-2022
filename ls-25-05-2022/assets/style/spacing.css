@@ -1,0 +1,23 @@
+.my-0 {
+	/* my: margin y axis */
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.ml-auto {
+	/* ml: margin-left */
+	margin-left: auto;
+}
+
+.my-1 {
+	margin-bottom: 4px;
+}
+.mx-1 {
+	/* mx: margin x axis */
+	margin-left: 4px;
+	margin-right: 4px;
+}
+.px-1 {
+	/* px: padding x axis */
+	padding-left: 4px;
+	padding-right: 4px;
+}
