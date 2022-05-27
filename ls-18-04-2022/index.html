@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* p {
+      color: rgb(111, 0, 255);
+    } */
+    /* section p {
+      color: rgb(204, 17, 126);
+    } */
+    section>* {
+      color: rgb(204, 17, 126);
+    }
+
+    span {
+      color: red;
+    }
+
+    .blue-text {
+      color: rgb(111, 0, 255);
+    }
+
+    section .red-text {
+      color: red !important;
+    }
+
+    .red-text {
+      color: red !important;
+    }
+
+
+
+
+    /* body section .red-text {
+      color: red;
+    } */
+
+    .heading {
+      font-weight: bolder;
+      font-size: 20px;
+    }
+
+    .heading-blue {
+      font-weight: bolder;
+      font-size: 20px;
+      color: rgb(111, 0, 255);
+    }
+
+    .first-heading {
+      background-color: #000;
+      /* 
+      Đoạn css siêu dài
+      */
+      background-color: rgb(212, 38, 38);
+    }
+
+    #secondText {
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<!--
+  CSS: INTERNAL CSS - Css nội khối.
+  Ưu điểm
+    Tính tái sử dụng cao.
+
+
+  Syntax: 
+    selector {
+      property_name: property_value;
+      name: value;
+    }
+    selector: bộ chọn 
+      1.tag-name: tên thẻ. 
+      tag-name {
+        name: value;
+      }
+
+      2.class: lớp - mang tính đăc trưng của 1 nhóm đối tượng
+      Số lượng lớp của 1 thẻ là không giới hạn, ngăn cách bởi dấu space
+      Không bắt đầu tên bằng số
+      .class-name {
+        name: value;
+      }
+
+      3.id: ID - mang tính định danh 1 đối tượng.
+      #id-name{
+        name: value;
+      }
+
+      4. cấp bậc
+      3-selector-cơbản toán-tử 3-selector-cơbản
+
+      1: ' '
+      mang ý nghĩa cha-con -> về bên tay phải là con (n cấp) của vế bên trái
+
+      2: '>'
+      mang ý nghĩa cha-con -> về bên tay phải là con (1 cấp) của vế bên trái
+
+      3: '*'
+  Độ ưu tiên:
+      Ưu tiên theo kiểu css ( !important ) 0
+      Ưu tiên theo kiểu viết - Inline > Internal > External 1
+      Ưu tiên theo cấp gọi. Gọi càng chi tiết thì càng được ưu tiên. 2
+      Ưu tiên theo thứ tự code. Viết sau thì được ưu tiên (cùng cấp selector). 3
+
+  Note: 
+  1 khối css {****} thì mỗi property chỉ có 1 giá trị
+  Tên class:
+      nên sử dụng dạng dash
+      BEM: B-Block, E:Element, M:Modifier -> B_E-M | B__E--M
+      header_title--big 
+      header: block
+      title: element
+      big: modifer
+-->
+
+<body>
+  <main>
+    <header>
+      <h3 class="header_title--big">
+        Chương 1
+      </h3>
+      <h4 class="header_title--small">
+        1.1
+      </h4>
+    </header>
+    <section>
+      <p class="heading blue-text first-heading">p tag</p>
+      <p class="red-text" style="color:#000!important" id="secondText">p tag: special</p>
+      <span id="secondText">span</span>
+      <p class="blue-text" style="color:rgb(204, 17, 126)">p tag 3</p>
+      <p>p tag</p>
+      <div>
+        <p>p tag trong div</p>
+
+      </div>
+      <a target="_self"
+        href="https://www.google.com/search?q=meme&rlz=1C1GCEA_enVN884VN884&sxsrf=APq-WBsgOcWmhwLNuCjObsu9aMclXOEMzw:1650287515417&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi3uoiJ2J33AhUSqVYBHYswBiQQ_AUoAXoECAEQAw&biw=1920&bih=937&dpr=1">
+        thẻ a
+      </a>
+      <!-- top, v.v -->
+    </section>
+  </main>
+</body>
+
+</html>
+<!-- dash: variable-name
+camel: variableName
+pascal: VARIABLENAME -->

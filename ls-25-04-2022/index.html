@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS - Flex Box</title>
+  <!--   
+  Mặc định hệ trục của 1 browser:
+  Trục X: nằm ngang, từ trái sang phải.
+  Trục Y: nằm dọc, từ trên xuống dưới.
+  Trục trong flex
+    Chỉ có 2 trục: trục chính, trục phụ
+    trục chính: dùng để sắp xếp, phát triền phần tử 
+    -> phần tử được sắp xếp lần lượt theo trục chính: theo hướng của trục chính.
+    trục phụ: dùng để sắp xếp, phát triền phần tử khi phần bị bị overwrap
+    -> phần tử được sắp xếp lần lượt theo trục phụ: theo hướng của trục phụ.
+
+  mặc định của flex
+  trục chính cùng phương cùng chiều với trục X
+  để control trục chính -> sử dụng flex-direction
+  row: mặc định - trục chính cùng phương cùng chiều với trục X;
+  column: dạng cột - trục chính cùng phương cùng chiều với trục Y;
+  *-reverse: đảo phương hướng của trục chính
+
+  mặc định của flex
+  trục phụ cùng phương cùng chiều với trục Y
+  để control trục phụ -> sử dụng flex-wrap
+  nowrap: mặc định - Tự động co các phần tử còn lại theo tỉ lệ được khai báo để chứa vừa phần tử mới;
+  wrap: xuống dòng - Tự động đẩy phần tử mới xuống dòng trục phụ cùng phương cùng chiều với trục Y;
+  wrap-reverse: đảo phương hướng của trục phụ   
+
+  flex-column
+  
+  control space,
+  align items,
+
+  justify-content: chỉ có tác dụng với phần tử flex-item |
+    center: sắp xếp các phân tử cùng 1 hàng ra giữa theo trục chính
+    flex-*: đẩy phần tử bắt đầu theo các hướng khác nhau (trục chính)
+      start: giá trị mặc định của thuộc tính - phần nội dung sẽ được đính tại điểm bắt đầu của trục chính
+      end: phần nội dung sẽ được đính tại điểm kết thúc của trục chính
+    space-*: phân chia khoảng trống còn dư trong flex-box (theo trục chính)
+      between: phân chia khoảng trống còn dư trong flex-box vào giữa các phần tử
+      around: phân chia khoảng trống còn dư trong flex-box vào mỗi phần tử (2 cạnh)
+      evenly: phân chia khoảng trống còn dư trong flex-box 1 cách đều nhau vào phần tử và lề của phần tử cha
+  
+  justify-self: chỉ có tác dụng với phần tử con của flex
+    nhận giá trị như align-items  
+
+  align-items: chỉ có tác dụng với phần tử flex-item |
+    flex-*: đẩy phần tử bắt đầu theo các hướng khác nhau (trục phụ)
+      start: 
+      end:
+    stretch: Giá trị mặc định của align-items. Mặc định kéo toàn bộ phần từ mà không được set height sẽ cao bằng phần tử có chiều cao lớn nhất
+    baseline: sắp xếp sao cho chân của dòng content đầu tiên của các phần tử thẳng hàng.
+    center: sắp xếp các phân tử cùng 1 hàng có phần giữa của items thẳng hàng
+  
+  align-self: chỉ có tác dụng với phần tử con của flex
+    nhận giá trị như align-items
+
+  order: đánh số thứ tự cho phần tử flex-con. số càng lớn thì sẽ được xếp sau
+    order: number | số thứ tự của phần tử flex-con - mặc định là 0, có thể nhận giá trị < 0, chỉ nhận số nguyên
+  
+  flex-grow: quy định khả năng kéo dãn của phần tử theo tỉ lệ. mặc định là 0
+    VD: k1= 100px, k2=100px, k3= 100px. => cha = 300px
+    thay đổi cha = 500px => chênh 200px
+    => flex-grow: tỉ lệ được tính (gap * selfGrow) / sumGrow
+    200px * 1 / 2
+
+  flex-shrink: quy định khả năng co của phần tử theo tỉ lệ. mặc định là 1
+    VD: k1= 100px, k2=100px, k3= 100px. => cha = 200px
+    thay đổi cha = 200px => chênh 100px
+   => flex-shrink: tỉ lệ được tính (gap * selfShrink) / sumShrink
+  
+  flex-basis: quy định kích thước mặc định cho phần tử (theo trục chính => width nếu trục chính là trục X. height nếu trục chính là trục Y)
+
+
+
+  -->
+  <style>
+    body {
+      margin: 20px 0;
+    }
+
+    .d-flex {
+      display: flex;
+
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .flex-column {
+      flex-direction: column;
+    }
+
+    .flex-row-reverse {
+      flex-direction: row-reverse;
+    }
+
+    .col-3 {
+      width: calc((3 / 12) * 100%);
+    }
+
+    .col-4 {
+      width: calc((4 / 12) * 100%);
+    }
+
+    .col-6 {
+      width: calc((6 / 12) * 100%);
+    }
+
+    .justify-self-end {
+      justify-self: self-end;
+    }
+
+    .justify-content-center {
+      justify-content: center;
+    }
+
+    .justify-content-end {
+      justify-content: flex-end;
+    }
+
+    .justify-content-start {
+      justify-content: flex-start;
+    }
+
+    .justify-content-between {
+      justify-content: space-between;
+    }
+
+    .justify-content-around {
+      justify-content: space-around;
+    }
+
+
+    .justify-content-evenly {
+      justify-content: space-evenly;
+    }
+
+    .align-self-start {
+      align-self: flex-start;
+    }
+
+    .align-items-start {
+      align-items: flex-start;
+    }
+
+    .align-items-end {
+      align-items: flex-end;
+    }
+
+    .align-items-strech {
+      align-items: stretch;
+    }
+
+    .align-items-baseline {
+      align-items: baseline;
+    }
+
+    .align-items-center {
+      align-items: center;
+    }
+
+    .bg-red {
+      background-color: red;
+    }
+
+    .bg-blue {
+      background-color: blue;
+    }
+
+    .mx-2 {
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+
+    .px-2 {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    .wr {
+      /* background: salmon; */
+      /* height: 300px; */
+    }
+
+    .order-n-1 {
+      order: -1;
+    }
+
+    .order-0 {
+      order: 0;
+    }
+
+    .order-1 {
+      order: 1;
+    }
+
+    .order-2 {
+      order: 2;
+    }
+
+    .order-3 {
+      order: 3;
+    }
+
+    .order-4 {
+      order: 4;
+    }
+
+
+
+    .first-div {
+      height: 40px;
+    }
+
+    .wr {
+      /* width: 500px; */
+      width: 300vw;
+      background-color: bisque;
+    }
+
+    .block-1 {
+      /* width: 100%; */
+      /* flex-grow: 1; */
+      /* flex-shrink: 1; */
+      /* flex-basis: 100px; */
+      /* flex: 1 8 100px; */
+      /* flex: grow shrink basis; */
+      /* 
+      grow
+      => 200 * 2 / 4
+      */
+    }
+
+    .block-2 {
+      font-size: 30px;
+      width: 10rem;
+      height: 10em;
+      /* flex: 1 1 100px; */
+      /* width: 100px; */
+      /* flex-grow: 1; */
+      /* flex-shrink: 2; */
+      /* 
+      grow
+      => 200 * 1 / 4
+      */
+      /* 
+      shrink
+      => 100 * 2 / 4 => 50
+      */
+    }
+
+    .block-3 {
+      /* flex: 1 1 100px; */
+      /* width: 100px; */
+      /* flex-grow: 1; */
+      /* flex-shrink: 1; */
+    }
+
+    /* 
+    ABSOLUTE - giá trị tuyệt đối vd: px, cm, dm, pt ...
+    RELATIVE - giá trị phụ thuộc, tương đối v.v vd: %, rem, vw, vh ....
+    vw: view-width - 1% đơn vị đo chiều rộng của trình duyệt
+    vh: view-height - 1% đơn vị đo chiều cao của trình duyệt
+    */
+  </style>
+</head>
+
+<body>
+  <main>
+    <section>
+      <div class="d-flex wr">
+        <div class="bg-red block-1">Col-4 1</div>
+        <div class="bg-blue block-2">
+          Col-4 2 abc
+        </div>
+        <div class="bg-red block-3">Col-4 3</div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
