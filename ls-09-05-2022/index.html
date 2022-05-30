@@ -275,7 +275,27 @@
       </div>
     </section>
   </main>
-  <footer></footer>
+  <footer>
+    <div class="container">
+
+      <p class="intersection">ĐÂY LÀ FOOTER NÈ</p>
+    </div>
+  </footer>
 </body>
+<script>
+  var observer = new IntersectionObserver(function (entries) {
+    // isIntersecting is true when element and viewport are overlapping
+    // isIntersecting is false when element and viewport don't overlap
+    if (entries[0].isIntersecting === true)
+      console.log('Element has just become visible in screen');
+  }, { threshold: [0] });
+
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll(".intersection").forEach(el => {
+
+      observer.observe(el);
+    })
+  })
+</script>
 
 </html>
