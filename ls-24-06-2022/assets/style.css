@@ -1,0 +1,12 @@
+.test-row {
+	height: 400px;
+}
+.btn-link[aria-expanded='false'] span {
+	transform: rotateZ(90deg);
+}
+.btn-link[aria-expanded='true'] span {
+	transform: rotateZ(180deg);
+}
+body .text-success {
+	color: #d85c5c !important;
+}
